@@ -55,8 +55,22 @@ success: function(data){
 console.log(data);
 const location = data.location;
  const current = data.current;
-}},)
- }
+
+lokasiTampil.textContent = location.name + ", " + location.country;
+let htmlContent = `
+<h3>Detail Cuaca</h3>
+<div class="weather-detail">Suhu: <strong>${current.temp_c}°C</strong></div>
+<div class="weather-detail">Kelembaban: <strong>${current.humidity}%</strong></div>
+
+
+<h3>Lokasi</h3>
+<div class="weather-detail">Negara: ${location.country}</div>
+ <div class="weather-detail">Provinsi/Region: ${location.region}</div>
+ <div class="weather-detail">Kota/Kecamatan: ${location.name}</div>
+ <div class="weather-detail">Lintang (Latitude): ${location.lat}</div>
+<div class="weather-detail">Bujur (Longitude): ${location.lon}</div>
+`;
+
 </script>
 </body>
 </html>
