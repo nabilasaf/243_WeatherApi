@@ -1,37 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">    
+<html lang="en"> 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cuaca</title>
+    <title>Pencarian Cuaca</title>
+    <style>
+    body { font-family: sans-serif; padding: 20px; }
+     #search-container { margin-bottom: 20px; }
+    #tampilan { border: 1px solid #ccc; padding: 15px; border-radius: 5px; }
+    .weather-detail { margin-bottom: 10px; }
+    </style>
 </head>
 <body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <h1>Pencarian Cuaca</h1>
+
+    <div id="search-container">
+    <label for="lokasi-input">Lokasi:</label>
+    <input type="text" id="lokasi-input" placeholder="Masukkan nama kota (e.g., London)">
+    <button id="cari-button">Cari Cuaca</button>
+    </div>
     
-    Cuaca : <p id="lokasi"></p>
     <hr>
-    <div id="tampilan"></div>
+    <h2 id="lokasi-judul">Cuaca di: <span id="lokasi-tampil"></span></h2>
 
-    <script>
-     const urlapi = "http://api.weatherapi.com/v1/current.json?key=81cb42b09a6643e0afb20753250710&q=Yogyakarta&aqi=no";
+    <div id="tampilan">
+    <p>Masukkan lokasi dan klik 'Cari Cuaca' untuk melihat detail.</p> </div>
 
-        $.ajax({
-            url: urlapi,
-            method: "GET",
-            success: function(data){
-                console.log(data);
-                const v = document.getElementById("tampilan");
-                const l = document.getElementById("lokasi");
-                let suhu = data.current.temp_c;
-                let lokasi = data.location.name;
-                v.innerHTML = suhu;
-                l.innerHTML = lokasi;
-            },
-            fail : function(error){
-                console.log(error);
-            },
-        });
 
-    </script>
 </body>
 </html>
