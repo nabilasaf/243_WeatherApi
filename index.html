@@ -36,7 +36,27 @@ const cariButton = document.getElementById("cari-button");
 const tampilanDiv = document.getElementById("tampilan");
 const lokasiTampil = document.getElementById("lokasi-tampil");
 
- 
+ function fetchWeatherData(query) {
+ if (!query) {
+ tampilanDiv.innerHTML = "<p style='color: red;'>⚠️ Harap masukkan nama lokasi.</p>";
+ lokasiTampil.textContent = "Tidak Ditemukan";
+ return;
+}
+
+ const urlapi = baseUrl + query;
+
+tampilanDiv.innerHTML = "<p>⏳ Memuat data...</p>";
+lokasiTampil.textContent = query;
+
+ $.ajax({
+url: urlapi,
+method: "GET",
+success: function(data){
+console.log(data);
+const location = data.location;
+ const current = data.current;
+}},)
+ }
 </script>
 </body>
 </html>
