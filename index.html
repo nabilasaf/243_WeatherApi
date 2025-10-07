@@ -28,6 +28,15 @@
     <div id="tampilan">
     <p>Masukkan lokasi dan klik 'Cari Cuaca' untuk melihat detail.</p> </div>
 
+<script>
+const apiKey = "81cb42b09a6643e0afb20753250710";
+const baseUrl = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&aqi=no&q=`;
+const lokasiInput = document.getElementById("lokasi-input");
+const cariButton = document.getElementById("cari-button");
+const tampilanDiv = document.getElementById("tampilan");
+const lokasiTampil = document.getElementById("lokasi-tampil");
 
+ 
+</script>
 </body>
 </html>
