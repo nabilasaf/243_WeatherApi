@@ -71,6 +71,25 @@ let htmlContent = `
 <div class="weather-detail">Bujur (Longitude): ${location.lon}</div>
 `;
 
+tampilanDiv.innerHTML = htmlContent;
+},
+error : function(error){
+console.error("Gagal mengambil data cuaca:", error);
+    lokasiTampil.textContent = "Tidak Ditemukan";
+    tampilanDiv.innerHTML = "<p style='color: red;'>❌ Gagal mengambil data cuaca. Periksa nama lokasi dan coba lagi.</p>";
+    }
+    });
+    }
+cariButton.addEventListener('click', function() {
+const query = lokasiInput.value.trim();
+ fetchWeatherData(query);
+ });
+ lokasiInput.addEventListener('keypress', function(e) {
+if (e.key === 'Enter') {
+cariButton.click();
+ }
+});
+
 </script>
 </body>
 </html>
